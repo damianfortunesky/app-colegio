@@ -1,0 +1,62 @@
+--1. Crea un nuevo proyecto
+
+    npm create vite@latest app-colegio-frontend --template react-ts
+    cd colegio-frontend
+
+--2. Instala las dependencias
+
+    npm install
+
+--3. Instala TailwindCSS
+
+    npm install -D tailwindcss postcss autoprefixer
+    npx tailwindcss init
+
+--4. Configura TailwindCSS en el archivo tailwind.config.cjs:
+
+    /** @type {import('tailwindcss').Config} */
+    module.exports = {
+    content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+    theme: {
+        extend: {},
+    },
+    plugins: [],
+    }
+
+--5. Configura TailwindCSS en el archivo src/index.css:
+
+    @tailwind base;
+    @tailwind components;
+    @tailwind utilities;
+
+--6. Generar CSS
+
+    npx tailwindcss -i ./src/index.css -o ./src/tailwind-estiles.css --watch
+
+    Agregar al index:
+
+        <link href="./src/tailwind-estiles.css" rel="stylesheet">
+
+--7. Ejecuta el proyecto
+
+    npm run dev
+
+/* SOBRE LA APP*/
+
+src/
+├── components/       # Componentes reutilizables
+├── pages/            # Páginas principales
+├── layouts/          # Diseños base (headers, sidebars)
+├── hooks/            # Hooks personalizados
+├── services/         # Llamadas a APIs
+├── types/            # Definiciones de TypeScript
+├── context/          # Contexto global (Auth, Theme, etc.)
+├── utils/            # Funciones utilitarias
+├── App.tsx           # Archivo principal
+└── main.tsx          # Punto de entrada
+
+
+/* Dependecias instaladas */
+
+npm install react-router-dom
+npm install axios
